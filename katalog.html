@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perpustakaan Digital - Koleksi Buku</title>
+    <link rel="icon" href="images/logoPerpus.png" type="image/png">
+    <style>
+        /* CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        /* Book Collection Section */
+        .book-collection {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .book-card {
+            width: 30%;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .book-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .book-card h3 {
+            margin-top: 10px;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .book-card p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        /* Borrow Form Section */
+        .borrow-form {
+            margin-top: 50px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .confirmation {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 5px;
+            text-align: center;
+            display: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .book-card {
+                width: 48%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .book-card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Perpustakaan Digital - Koleksi Buku</h1>
+    </header>
+
+    <div class="container">
+        <!-- Book Collection Section -->
+        <div class="book-collection">
+            <div class="book-card">
+                <img src="plng.jpg" alt="Fiction Book">
+                <h3>Fiksi Terbaik</h3>
+                <p>Penulis: J.K. Rowling</p>
+                <button class="borrow-btn" onclick="showForm('Fiksi Terbaik')">Pinjam Buku</button>
+            </div>
+
+            <div class="book-card">
+                <img src="oy.jpg" alt="Non-Fiction Book">
+                <h3>Sejarah Dunia</h3>
+                <p>Penulis: Yuval Noah Harari</p>
+                <button class="borrow-btn" onclick="showForm('Sejarah Dunia')">Pinjam Buku</button>
+            </div>
+
+            <div class="book-card">
+                <img src="sejarah.jpg" alt="Education Book">
+                <h3>Pendidikan untuk Masa Depan</h3>
+                <p>Penulis: Maria Montessori</p>
+                <button class="borrow-btn" onclick="showForm('Pendidikan untuk Masa Depan')">Pinjam Buku</button>
+            </div>
+        </div>
+
+        <!-- Borrow Form Section -->
+        <div class="borrow-form">
+            <h2>Form Peminjaman Buku</h2>
+            <div class="form-group">
+                <label for="name">Nama Lengkap</label>
+                <input type="text" id="name" placeholder="Masukkan nama lengkap" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Masukkan email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="book">Buku yang Dipinjam</label>
+                <input type="text" id="book" disabled placeholder="Buku akan dipilih otomatis" required>
+            </div>
+
+            <div class="form-group">
+                <label for="borrowDate">Tanggal Peminjaman</label>
+                <input type="date" id="borrowDate" required>
+            </div>
+
+            <button type="button" onclick="submitForm()">Pinjam Buku</button>
+
+            <div class="confirmation" id="confirmationMessage">
+                Terima kasih! Peminjaman buku berhasil.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Show the selected book title in the form
+        function showForm(bookTitle) {
+            document.getElementById("book").value = bookTitle;
+            document.querySelector(".borrow-form").scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Form submission handler
+        function submitForm() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var book = document.getElementById("book").value;
+            var borrowDate = document.getElementById("borrowDate").value;
+
+            // Simple form validation
+            if (name && email && book && borrowDate) {
+                document.getElementById("confirmationMessage").style.display = "block";
+                setTimeout(function() {
+                    document.getElementById("confirmationMessage").style.display = "none";
+                }, 3000);
+
+                // Clear the form after submission
+                document.getElementById("name").value = '';
+                document.getElementById("email").value = '';
+                document.getElementById("borrowDate").value = '';
+            } else {
+                alert("Semua field harus diisi.");
+            }
+        }
+    </script>
+
+</body>
+</html>

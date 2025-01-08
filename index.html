@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Digital Library Homepage">
+    <meta name="author" content="">
+
+    <!-- Title and Favicon -->
+    <title>Digital Library</title>
+    <link rel="icon" href="images/logoPerpus.png" type="image/png">
+
+    <!-- Custom CSS -->
+    <style>
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Header Section */
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+        }
+
+        .logo {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 120px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
+            padding-top: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Banner Section */
+        .banner-section {
+            background: url('images/banner.jpg') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .banner-section h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .banner-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            padding: 12px 30px;
+            color: white;
+            border: none;
+            font-size: 1rem;
+            text-transform: uppercase;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        /* About Section */
+        .about-section {
+            background-color: #fff;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .about-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .about-section p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* Featured Collections Section */
+        .featured-collections {
+            padding: 50px 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
+            background-color: #f9f9f9;
+        }
+
+        .collection-card {
+            background-color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .collection-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .collection-card h3 {
+            margin-top: 20px;
+            font-size: 1.5rem;
+        }
+
+        .collection-card p {
+            font-size: 1rem;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 1rem;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 1024px) {
+            .featured-collections {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .featured-collections {
+                grid-template-columns: 1fr;
+            }
+
+            .banner-section h1 {
+                font-size: 2rem;
+            }
+
+            .banner-section p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="logo-perpus.jpg" alt="Logo">
+        </div>
+        <nav>
+            <a href="index.html">Beranda</a>
+            <a href="about.html">Tentang</a>
+            <a href="katalog.html">Katalog</a>
+            <a href="login.html">LOGIN</a>
+        </nav>
+    </header>
+
+    <!-- Banner Section -->
+    <section class="banner-section">
+        <h1>Selamat Datang di Perpustakaan Digital</h1>
+        <p>Temukan ribuan koleksi buku dan sumber daya digital yang dapat diakses kapan saja dan di mana saja.</p>
+        <a href="katalog.html" class="btn-primary">Jelajahi Koleksi Kami</a>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <h2>Tentang Perpustakaan Digital</h2>
+        <p>Perpustakaan Digital adalah platform inovatif yang memungkinkan Anda mengakses berbagai koleksi buku elektronik, artikel, jurnal, dan materi pembelajaran lainnya secara mudah dan cepat. Dapatkan pengetahuan yang tidak terbatas hanya dengan klik!</p>
+    </section>
+
+    <!-- Featured Collections Section -->
+    <section class="featured-collections">
+        <div class="collection-card">
+            <img src="pelangi.jpeg" alt="Fiction">
+            <h3>Koleksi Fiksi</h3>
+            <p>Temukan berbagai cerita fiksi menarik dari penulis terkenal.</p>
+        </div>
+        <div class="collection-card">
+            <img src="ki.jpg" alt="Non-fiction">
+            <h3>Koleksi Non-Fiksi</h3>
+            <p>Jelajahi koleksi buku non-fiksi yang beragam untuk memperluas wawasan Anda.</p>
+        </div>
+        <div class="collection-card">
+            <img src="php.jpg" alt="Education">
+            <h3>Koleksi Pendidikan</h3>
+            <p>Dapatkan buku dan materi pendidikan dari berbagai bidang studi.</p>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Perpustakaan Digital | Semua Hak Cipta Dilindungi</p>
+    </footer>
+
+</body>
+</html>
